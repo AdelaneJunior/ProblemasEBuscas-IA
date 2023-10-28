@@ -1,3 +1,5 @@
+package GraphStructure;
+
 public class QueueObject implements Comparable<QueueObject> {
     public Vertex vertex;
     public int priority;

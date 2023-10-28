@@ -1,3 +1,5 @@
+package GraphStructure;
+
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -128,7 +130,7 @@ public class Graph {
         ArrayList<Vertex> visted = new ArrayList<Vertex>();
         visted.add(graph.getVertices().get(1));
 
-//        GraphShearch.depthShearch(graph.getVertices().get(1),graph.getVertices().get(3), visted, graph.getVertices().get(1).getData());
+//        GraphStructure.GraphShearch.depthShearch(graph.getVertices().get(1),graph.getVertices().get(3), visted, graph.getVertices().get(1).getData());
         GraphShearch.heuristicResultPrinter(GraphShearch.heuristicDictionary(graph, pessoa1));
         GraphShearch.shortestPathBetween(graph, pessoa1, pessoa5);
     }

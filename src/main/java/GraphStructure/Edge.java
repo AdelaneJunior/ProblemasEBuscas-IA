@@ -1,3 +1,5 @@
+package GraphStructure;
+
 import lombok.Getter;
 
 @Getter

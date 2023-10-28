@@ -1,3 +1,5 @@
+package GraphStructure;
+
 public class LinkedList {
     public Node head;
 

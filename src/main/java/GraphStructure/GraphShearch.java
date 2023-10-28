@@ -1,3 +1,5 @@
+package GraphStructure;
+
 import java.util.*;
 
 public class GraphShearch {

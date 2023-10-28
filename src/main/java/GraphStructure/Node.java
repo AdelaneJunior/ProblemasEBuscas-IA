@@ -1,3 +1,5 @@
+package GraphStructure;
+
 public class Node {
 
     public Vertex data;
