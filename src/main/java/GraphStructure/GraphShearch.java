@@ -1,41 +1,14 @@
 package GraphStructure;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
 
 public class GraphShearch {
 
-    public static void depthShearch(Vertex startVertex, Vertex endVertex, ArrayList<Vertex> visited, String initial) {
-
-        System.out.print(startVertex.getData());
-
-        for (Edge e : startVertex.getEdges()) {
-
-            Vertex neighbor = e.getEndVertex();
-
-            if (neighbor == endVertex) {
-                System.out.print(" --> ");
-                System.out.print(neighbor.getData());
-                return;
-            }
-
-            if (!visited.contains(neighbor)) {
-
-                System.out.print(" verifica --> ");
-                visited.add(neighbor);
-                GraphShearch.depthShearch(neighbor, endVertex, visited, initial);
-            }
-
-            if (startVertex.getData().equals(initial)) {
-                System.out.print("\n" + startVertex.getData());
-            }
-        }
-
-    }
 
     public static void breadthSearch(Vertex startVertex, Vertex endVertex, ArrayList<Vertex> visited) {
 
         Queue visitQueue = new Queue();
-        Vertex verificado = null;
         boolean init = true;
         visitQueue.enqueue(startVertex);
 
@@ -56,7 +29,7 @@ public class GraphShearch {
                 Vertex neighbor = e.getEndVertex();
 
                 if (neighbor == endVertex) {
-                    System.out.print("encontra o destino de busca --> ");
+                    System.out.print("Em "+current.getData() +" encontra o destino de busca --> ");
                     System.out.print(neighbor.getData());
                     return;
                 }
@@ -110,7 +83,7 @@ public class GraphShearch {
         return new Dictionary[]{distances, previous};
     }
 
-    public static void heuristicResultPrinter(Dictionary[] dictionaries) {
+    private static void heuristicResultPrinter(Dictionary[] dictionaries) {
 
         System.out.println("Distances:\n");
 
@@ -141,7 +114,7 @@ public class GraphShearch {
 
         Integer distance = (Integer) distances.get(targetVertex.getData());
 
-        System.out.println("O caminho mais curto entre " + startVertex.getData() + " e " + targetVertex.getData() + " tem distancia de: "+ distance);
+        System.out.println("O caminho mais curto entre " + startVertex.getData() + " e " + targetVertex.getData() + " tem distancia de: " + distance);
 
         ArrayList<Vertex> path = new ArrayList<>();
         Vertex vertex = targetVertex;
@@ -156,7 +129,7 @@ public class GraphShearch {
         int i = 0;
         for (Vertex pathVertex : path) {
 
-            if (i == path.size()-1) {
+            if (i == path.size() - 1) {
                 System.out.print(pathVertex.getData());
             } else {
 
@@ -164,5 +137,29 @@ public class GraphShearch {
                 i++;
             }
         }
+    }
+
+    public static boolean depthShearch(Vertex startVertex, Vertex targetVertex, ArrayList<Vertex> visited, boolean finded) {
+
+        for (Edge e : startVertex.getEdges()) {
+
+            Vertex neighbor = e.getEndVertex();
+
+            if (neighbor == targetVertex && !finded) {
+                System.out.print("\n"+startVertex.getData() + " encontra --> " + neighbor.getData());
+                return true;
+            }
+
+            if (!visited.contains(neighbor)) {
+                visited.add(neighbor);
+                System.out.print(startVertex.getData() + " --> " + neighbor.getData() +"\n");
+                finded = GraphShearch.depthShearch(neighbor, targetVertex, visited, finded);
+            }
+
+            if (finded){
+                break;
+            }
+        }
+        return finded;
     }
 }

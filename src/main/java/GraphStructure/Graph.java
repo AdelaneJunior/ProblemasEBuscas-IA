@@ -102,36 +102,4 @@ public class Graph {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-
-        Graph graph = new Graph(true, false);
-
-        Vertex pessoa1 = graph.addVertex("Sara");
-        Vertex pessoa2 = graph.addVertex("Adelane");
-        Vertex pessoa3 = graph.addVertex("Rafa");
-        Vertex pessoa4 = graph.addVertex("Silas");
-        Vertex pessoa5 = graph.addVertex("Felipe");
-
-
-        graph.addEdge(pessoa1, pessoa2, 100);
-        graph.addEdge(pessoa2, pessoa3, 20);
-        graph.addEdge(pessoa3, pessoa4, 20);
-        graph.addEdge(pessoa1, pessoa5, 21);
-
-  //      graph.print();
-//
-//        System.out.println("0 : "+graph.getVertices().get(0).getData() );
-//        System.out.println("1 : "+graph.getVertices().get(1).getData() );
-//        System.out.println("2 : "+graph.getVertices().get(2).getData() );
-//        System.out.println("3 : "+graph.getVertices().get(3).getData() );
-//        System.out.println("4 : "+graph.getVertices().get(4).getData() );
-
-        ArrayList<Vertex> visted = new ArrayList<Vertex>();
-        visted.add(graph.getVertices().get(1));
-
-//        GraphStructure.GraphShearch.depthShearch(graph.getVertices().get(1),graph.getVertices().get(3), visted, graph.getVertices().get(1).getData());
-        GraphShearch.heuristicResultPrinter(GraphShearch.heuristicDictionary(graph, pessoa1));
-        GraphShearch.shortestPathBetween(graph, pessoa1, pessoa5);
-    }
 }
