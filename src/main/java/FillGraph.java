@@ -10,7 +10,7 @@ public class FillGraph {
 
         graph = new Graph(true, false);
 
-        Vertex joao = graph.addVertex("João");
+        Vertex joao = graph.addVertex("Joao");
         Vertex pedro = graph.addVertex("Pedro");
         Vertex rafael = graph.addVertex("Rafael");
         Vertex samara = graph.addVertex("Samara");
