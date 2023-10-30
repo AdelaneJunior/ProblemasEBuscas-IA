@@ -25,9 +25,9 @@ public class FillGraph {
         graph.addEdge(joao, samara, 1);
         graph.addEdge(joao, felipe, 10);
         graph.addEdge(felipe, livia, 8);
-        graph.addEdge(livia, rafaela, 20);
+        graph.addEdge(livia, rafaela, 14);
         graph.addEdge(rafaela, patricia, 9);
-        graph.addEdge(amanda, maria, 15);
+        graph.addEdge(amanda, maria, 12);
         graph.addEdge(amanda, joao, 15);
         graph.addEdge(pedro, rafael, 5);
         graph.addEdge(felipe, rafaela, 20);
